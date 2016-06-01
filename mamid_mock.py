@@ -30,7 +30,7 @@ def replicat_sets():
 
 @app.route('/problems')
 def problems():
-    return render_template('problems.html', title="Replica Sets", crumb=[{'name': 'Problems', 'url': '/problems'}],
+    return render_template('problems.html', title="Problems", crumb=[{'name': 'Problems', 'url': '/problems'}],
                            pproblems=True)
 
 
@@ -52,14 +52,16 @@ def riskgroups():
                            cabA=cabA, unused=unused)
 
 
-@app.route('/new/host')
+@app.route('/new/slave')
 def new_host():
-    return render_template('dashboard.html', title="New Slave", pnewslave=True)
+    return render_template('new_slave.html', title="New slave", pnewslave=True,
+                           crumb=[{'name': 'New slave', 'url': '/new/slave'}])
 
 
 @app.route('/new/replicaset')
 def new_replica_set():
-    return render_template('dashboard.html', title="New Replica Set", pnewreplicaset=True)
+    return render_template('dashboard.html', title="New Replica Set", pnewreplicaset=True,
+                           crumb=[{'name': 'New replica set', 'url': '/new/replicaset'}])
 
 
 @app.route('/slave/<slave>/edit/<mockupstate>')
