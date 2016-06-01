@@ -54,7 +54,7 @@ def riskgroups():
 
 @app.route('/new/slave')
 def new_host():
-    return render_template('new_slave.html', title="New slave", pnewslave=True,
+    return render_template('edit_slave.html', title="New slave", pnewslave=True,
                            crumb=[{'name': 'New slave', 'url': '/new/slave'}])
 
 

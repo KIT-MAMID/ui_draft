@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
-    <h1 class="page-header">Slave {{ slavename }}</h1>
-    <div class="bs-callout bs-callout-{{ state }}">
-        <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> {{ slavename }} is in <b>{{ state }}</b>
-            state.</h4>
-    </div>
+    <h1 class="page-header">{{ title }}</h1>
+    {% if state %}
+        <div class="bs-callout bs-callout-{{ state }}">
+            <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> {{ slavename }} is in
+                <b>{{ state }}</b>
+                state.</h4>
+        </div>
+    {% endif %}
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Slave settings</h3>
@@ -14,7 +17,7 @@
                 <tr>
                     <th>Hostname</th>
                     <td colspan="2">
-                        <input type="text" class="form-control" value="mksuns11"/>
+                        <input type="text" class="form-control" placeholder="slavename" value="{{ slavename }}"/>
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +39,7 @@
                     <th>Slave with persistent storage <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
                     </th>
                     <td colspan="2">
-                        <input type="checkbox" class="form-control" checked/>
+                        <input type="checkbox" class="form-control" {% if state %}checked{% endif %}/>
                     </td>
                 </tr>
                 <tr>
@@ -48,37 +51,39 @@
                 <tr>
                     <td colspan="2"></td>
                     <td>
-                        <button type="submit" class="btn btn-primary pull-right">Apply</button>
+                        <button type="submit" class="btn btn-{% if state %}primary{% else %}success{% endif %} pull-right">{% if state %}Apply{% else %}Create node{% endif %}</button>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Slave control</h3>
-        </div>
-        <div class="panel-body">
-            <div class="btn-group btn-group-justified" role="group">
-                <div class="btn-group" role="group">
-                    <a href="active"
-                       class="btn btn-default {% if state =='unknown' %} disabled {% endif %} {% if state == 'active' %}active"
-                       aria-pressed="true" {% else %} " {% endif %}>Active</a>
-                </div>
-                <div class="btn-group" role="group">
-                    <a href="maintenance" class="btn btn-default {% if state == 'maintenance' %}active"
-                       aria-pressed="true" {% else %} " {% endif %}>Maintenance mode</a>
-                </div>
-                <div class="btn-group" role="group">
-                    <a href="disabled" class="btn btn-default {% if state == 'disabled' %}active"
-                       aria-pressed="true" {% else %} " {% endif %}>Disabled</a>
-                </div>
-                <div class="btn-group" role="group">
-                    <a href="unknown" class="btn btn-default {% if state == 'unknown' %}active"
-                       aria-pressed="true" {% else %} disabled" {% endif %}>Unknown</a>
+    {% if state %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Slave control</h3>
+            </div>
+            <div class="panel-body">
+                <div class="btn-group btn-group-justified" role="group">
+                    <div class="btn-group" role="group">
+                        <a href="active"
+                           class="btn btn-default {% if state =='unknown' %} disabled {% endif %} {% if state == 'active' %}active"
+                           aria-pressed="true" {% else %} " {% endif %}>Active</a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <a href="maintenance" class="btn btn-default {% if state == 'maintenance' %}active"
+                           aria-pressed="true" {% else %} " {% endif %}>Maintenance mode</a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <a href="disabled" class="btn btn-default {% if state == 'disabled' %}active"
+                           aria-pressed="true" {% else %} " {% endif %}>Disabled</a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <a href="unknown" class="btn btn-default {% if state == 'unknown' %}active"
+                           aria-pressed="true" {% else %} disabled" {% endif %}>Unknown</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 
 {% endblock %}
