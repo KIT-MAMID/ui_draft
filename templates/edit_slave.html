@@ -17,7 +17,7 @@
                 <tr>
                     <th>Hostname</th>
                     <td colspan="2">
-                        <input type="text" class="form-control" placeholder="slavename" value="{{ slavename }}"/>
+                        <input type="text" class="form-control" placeholder="hostname" value="{{ slavename }}"/>
                     </td>
                 </tr>
                 <tr>
@@ -45,13 +45,16 @@
                 <tr>
                     <th>Root data directory</th>
                     <td colspan="2">
-                        <input type="text" class="form-control" value="/work/mongodb/"/>
+                        <input type="text" class="form-control" {% if state %}value="/Work/mongodb/" {% else %}
+                               placeholder="absolute path" {% endif %}/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2"></td>
                     <td>
-                        <button type="submit" class="btn btn-{% if state %}primary{% else %}success{% endif %} pull-right">{% if state %}Apply{% else %}Create node{% endif %}</button>
+                        <button type="submit"
+                                class="btn btn-{% if state %}primary{% else %}success{% endif %} pull-right">
+                            {% if state %}Apply{% else %}Create node{% endif %}</button>
                     </td>
                 </tr>
             </table>
