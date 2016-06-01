@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 class="page-header">{{ title }}</h1>
+    <h2 class="sub-header">Current problems</h2>
+    <div class="bs-callout bs-callout-unknown">
+        <h4>Slave <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> mksuns11 - <b>UNKNOWN</b></h4>
+        <p>Slave mksuns11 is not reachable.
+        </p>
+    </div>
+    <h2 class="sub-header">Replica sets</h2>
+    <div class="bs-callout bs-callout-degraded">
+        <h4>Replica set 'meterological_data' - <b>DEGRADED</b></h4>
+        <p>Slave mksuns11 is not reachable.
+        </p>
+    </div>
+    <h2 class="sub-header">Slave states</h2>
+    <div id="slaves"></div>
+    <script>
+        var chart = c3.generate({
+                    bindto: '#slaves',
+                    data: {
+                        columns: [
+                            ['Active', 50],
+                            ['Maintenance', 50],
+                            ['Disabled', 3],
+                            ['Unknown', 1],
+                        ],
+                        type: 'donut',
+                    },
+                    donut: {
+                        title: "Slave states"
+                    },
+                    color: {
+                        pattern: ['#22aa22', '#0af', '#c0c0c0', '#d43f3a']
+                    },
+                })
+                ;
+    </script>
+{% endblock body %}

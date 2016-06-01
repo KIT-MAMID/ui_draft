@@ -1,0 +1,56 @@
+/static/js
+├── bootstrap.js
+├── bootstrap.min.js
+└── c3
+    ├── bower.json
+    ├── c3.css
+    ├── c3.js
+    ├── c3.min.css
+    ├── c3.min.js
+    ├── component.json
+    ├── CONTRIBUTING.md
+    ├── extensions
+    │   ├── chart-bubble
+    │   │   ├── bubble.js
+    │   │   ├── c3.css -> ../../c3.css
+    │   │   ├── c3.min.js -> ../../c3.min.js
+    │   │   └── index.html
+    │   ├── exporter
+    │   │   ├── config.json
+    │   │   ├── phantom-exporter.js
+    │   │   └── test.png
+    │   └── js
+    │       └── c3ext.js
+    ├── Gruntfile.coffee
+    ├── karma.conf.js
+    ├── LICENSE
+    ├── package.json
+    ├── README.md
+    └── spec
+        ├── api.axis-spec.js
+        ├── api.data-spec.js
+        ├── api.focus-spec.js
+        ├── api.grid-spec.js
+        ├── api.load-spec.js
+        ├── api.region-spec.js
+        ├── api.zoom-spec.js
+        ├── arc-spec.js
+        ├── axis-spec.js
+        ├── c3-helper.js
+        ├── c3-spec.js
+        ├── class-spec.js
+        ├── core-spec.js
+        ├── data-spec.js
+        ├── domain-spec.js
+        ├── grid-spec.js
+        ├── interaction-spec.js
+        ├── legend-spec.js
+        ├── shape.bar-spec.js
+        ├── shape.line-spec.js
+        ├── svg-helper.js
+        ├── title-spec.js
+        ├── tooltip-spec.js
+        ├── type-spec.js
+        └── zoom-spec.js
+
+6 directories, 47 files

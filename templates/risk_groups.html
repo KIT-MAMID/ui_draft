@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 class="page-header">{{ title }}</h1>
+    <p><small>Group your slaves into groups which share an common (physical) fault source to reduce replica set downtimes in case of a fault.</small></p>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                       aria-expanded="true" aria-controls="collapseOne">
+                        Assignable slaves
+                    </a><span data-toggle="tooltip" data-placement="right"
+                                                title="Slaves need to be in 'disabled' state to be assignable to a risk group."><span
+                            class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <ul class="list-group">
+                    {% for s in unused %}
+                        <li class="list-group-item">{{ s }}<span class="pull-right">Assign to
+                            <select>
+                            <option>Cabinet A</option>
+                            <option>Cabinet B</option>
+                        </select>
+                        </span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Cabinet A
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <ul class="list-group">
+                    {% for s in cabA %}
+                        <li class="list-group-item">{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                       href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Cabinet B
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <ul class="list-group">
+                    <li class="list-group-item"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+                        mksuns11
+                    </li>
+                    {% for s in cabB %}
+                        <li class="list-group-item">{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
