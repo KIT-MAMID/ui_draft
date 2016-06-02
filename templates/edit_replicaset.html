@@ -7,12 +7,6 @@
                 <b>{{ state }}</b>
                 state.</h4>
         </div>
-        {% if state == 'degraded' %}
-            <div class="bs-callout bs-callout-warning">
-                <h4><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> This replica set is
-                    currently <b>volatile</b>.</h4>
-            </div>
-        {% endif %}
     {% endif %}
     <div class="panel panel-default">
         <div class="panel-heading">
