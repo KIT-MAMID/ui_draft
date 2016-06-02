@@ -93,7 +93,26 @@
             </div>
             <div class="panel-body">
                 <p>Removal is only possible with the slave in disabled mode.</p>
-                <a href="#" role="button" class="btn btn-danger {% if state!='disabled' %} disabled{% endif %}">Remove slave '{{ slavename }}' from System</a>
+                <a href="#" role="button" class="btn btn-danger {% if state!='disabled' %} disabled{% endif %}"
+                   data-toggle="modal" data-target="#confirm_remove">Remove slave '{{ slavename }}' from system</a>
+            </div>
+        </div>
+        <div class="modal fade" id="confirm_remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Confirm slave deletion</h4>
+                    </div>
+                    <div class="modal-body">
+                        You are about to delete the slave {{ slavename }}.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Delete slave {{ slavename }}</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
             </div>
         </div>
     {% endif %}
