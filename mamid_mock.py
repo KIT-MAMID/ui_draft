@@ -72,6 +72,15 @@ def edit_slave(slave, mockupstate):
                            state=mockupstate)
 
 
+@app.route('/replicaset/<replicaset>/edit/<state>')
+def edit_replica_set(replicaset, state):
+    return render_template('edit_replicaset.html', slavename=replicaset, title="Replica set {}".format(replicaset),
+                           crumb=[{'name': 'Replica sets', 'url': '/replicasets'},
+                                  {'name': replicaset, 'url': '/rpelicaset/{}/edit/{}'.format(replicaset, state)}],
+                           preplicaset=True,
+                           state=state)
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

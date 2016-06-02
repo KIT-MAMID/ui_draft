@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 class="page-header">{{ title }}</h1>
+    {% if state %}
+        <div class="bs-callout bs-callout-{{ state }}">
+            <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> {{ slavename }} is in
+                <b>{{ state }}</b>
+                state.</h4>
+        </div>
+    {% endif %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Replica set overview</h3>
+        </div>
+        <div class="panel-body">
+            <h4>Slaves</h4>
+            <table class="table" width="100%">
+                <tr>
+                    <td>
+                        <div class="bs-callout bs-callout-{{ state }}">
+                            <h4>mksuns11 - <b>{% if state=='degraded' %}UNKNOWN{% else %}ACTIVE{% endif %}</b>
+                            </h4>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bs-callout bs-callout-active">
+                            <h4>mksuns49 - <b>ACTIVE</b>
+                            </h4>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="bs-callout bs-callout-active">
+                            <h4>mksuns50 - <b>ACTIVE</b>
+                            </h4>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% if state %}
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Remove replica set</h3>
+            </div>
+            <div class="panel-body">
+                <a href="#" role="button" class="btn btn-danger">Remove
+                    replica set '{{ slavename }}' from System</a>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
