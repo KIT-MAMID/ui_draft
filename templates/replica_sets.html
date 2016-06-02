@@ -1,42 +1,29 @@
 {% extends "base.html" %}
 {% block body %}
     <h1 class="page-header">{{ title }}</h1>
-    <h2 class="sub-header">Unknwon</h2>
+    <h2 class="sub-header">Degraded</h2>
     <div class="bs-callout bs-callout-unknown">
-        <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> mksuns11 - <b>UNKNOWN</b>
+        <h4><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> metrological_data - <b>DEGRADED</b>
             <span class="pull-right">
-
-
-
-                <a href="/slave/mksuns11/edit/unknown" class="btn btn-default"><span
+                <a href="/replicaset/metrological_data/edit/degraded" class="btn btn-default"><span
                         class="glyphicon glyphicon-wrench"
                         aria-hidden="true"></span></a>
                 </span>
 
         </h4>
-        <p>Host mksuns11 is not reachable.
+        <p>Host <a href="/slave/mksuns11/edit/unknown">mksuns11</a> is not active.
         </p>
     </div>
-    <h2 class="sub-header">Disabled</h2>
-    {% for i in disabled %}
-        <div class="bs-callout bs-callout-disabled">
-            <h4>{{ i }} - <b>DISABLED</b>
-                <span class="pull-right">
-                    <a href="/slave/{{ i }}/edit/disabled" class="btn btn-default"><span class="glyphicon glyphicon-wrench"
-                                                                                 aria-hidden="true"></span></a>
-                    </span>
-            </h4>
-        </div>
-    {% endfor %}
     <h2 class="sub-header">Active</h2>
-    {% for i in slaves %}
-        <div class="bs-callout bs-callout-active">
-            <h4>{{ i }} - <b>Active</b>
-                <span class="pull-right">
-                    <a href="/slave/{{ i }}/edit/active" class="btn btn-default"><span class="glyphicon glyphicon-wrench"
-                                                          aria-hidden="true"></span></a>
-                    </span>
-            </h4>
-        </div>
-    {% endfor %}
+    <div class="bs-callout bs-callout-active">
+        <h4><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> cern - <b>ACTIVE</b>
+            <span class="pull-right">
+                <a href="/replicaset/cern/edit/degraded" class="btn btn-default"><span
+                        class="glyphicon glyphicon-wrench"
+                        aria-hidden="true"></span></a>
+                </span>
+
+        </h4>
+        </p>
+    </div>
 {% endblock body %}
