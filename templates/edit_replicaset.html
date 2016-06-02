@@ -43,6 +43,42 @@
             </table>
         </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit replica set</h3>
+        </div>
+        <div class="panel-body">
+            <table width="100%">
+                <tr>
+                    <th>Persistent nodes</th>
+                    <td colspan="2">
+                        <input type="number" class="form-control" value="1"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Volatile nodes</th>
+                    <td colspan="2">
+                        <input type="number" class="form-control" value="2"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Sharding configuration server
+                    </th>
+                    <td colspan="2">
+                        <input type="checkbox" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <button type="submit"
+                                class="btn btn-{% if state %}primary{% else %}success{% endif %} pull-right">
+                            {% if state %}Apply{% else %}Create slave{% endif %}</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
     {% if state %}
         <div class="panel panel-danger">
             <div class="panel-heading">
