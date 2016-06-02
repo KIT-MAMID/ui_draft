@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
     <h1 class="page-header">{{ title }}</h1>
-    <p><small>Group your slaves into groups which share an common (physical) fault source to reduce replica set downtimes in case of a fault.</small></p>
+    <p>
+        <small>Group your slaves into groups which share an common (physical) fault source to reduce replica set
+            downtimes in case of a fault.
+        </small>
+    </p>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
@@ -10,8 +14,8 @@
                        aria-expanded="true" aria-controls="collapseOne">
                         Assignable slaves
                     </a><span data-toggle="tooltip" data-placement="right"
-                                                title="Slaves need to be in 'disabled' state to be assignable to a risk group."><span
-                            class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span>
+                              title="Slaves need to be in 'disabled' state to be assignable to a risk group."><span
+                        class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span>
                 </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -19,10 +23,12 @@
                     {% for s in unused %}
                         <li class="list-group-item">{{ s }}<span class="pull-right">Assign to
                             <select>
-                            <option>Cabinet A</option>
-                            <option>Cabinet B</option>
-                        </select>
-                        </span></li>
+                                <option selected>Select group..</option>
+                                <option>Cabinet A</option>
+                                <option>Cabinet B</option>
+                            </select>
+                            </span>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
