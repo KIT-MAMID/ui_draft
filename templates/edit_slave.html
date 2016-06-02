@@ -93,7 +93,7 @@
             </div>
             <div class="panel-body">
                 <p>Removal is only possible with the slave in disabled mode.</p>
-                <a href="#" role="button" class="btn btn-danger {% if state!='disabled' %} disabled{% endif %}">Remove slave from System</a>
+                <a href="#" role="button" class="btn btn-danger {% if state!='disabled' %} disabled{% endif %}">Remove slave '{{ slavename }}' from System</a>
             </div>
         </div>
     {% endif %}
