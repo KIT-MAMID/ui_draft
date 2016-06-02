@@ -8,47 +8,57 @@
                 state.</h4>
         </div>
     {% endif %}
+    {% if state %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Replica set overview</h3>
+            </div>
+            <div class="panel-body">
+                <h4>Slaves</h4>
+                <table class="table" width="100%">
+                    <tr>
+                        <td>
+                            <div class="bs-callout bs-callout-{{ state }}">
+                                <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> mksuns11 - <b>
+                                    {% if state=='degraded' %}UNKNOWN{% else %}ACTIVE{% endif %}</b>
+                                </h4>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="bs-callout bs-callout-active">
+                                <h4>mksuns49 - <b>ACTIVE</b>
+                                </h4>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="bs-callout bs-callout-active">
+                                <h4>mksuns50 - <b>ACTIVE</b>
+                                </h4>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    {% endif %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Replica set overview</h3>
-        </div>
-        <div class="panel-body">
-            <h4>Slaves</h4>
-            <table class="table" width="100%">
-                <tr>
-                    <td>
-                        <div class="bs-callout bs-callout-{{ state }}">
-                            <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> mksuns11 - <b>
-                                {% if state=='degraded' %}UNKNOWN{% else %}ACTIVE{% endif %}</b>
-                            </h4>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="bs-callout bs-callout-active">
-                            <h4>mksuns49 - <b>ACTIVE</b>
-                            </h4>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="bs-callout bs-callout-active">
-                            <h4>mksuns50 - <b>ACTIVE</b>
-                            </h4>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Edit replica set</h3>
+            <h3 class="panel-title">{% if state %}Edit{% else %}New{% endif %} replica set</h3>
         </div>
         <div class="panel-body">
             <table width="100%">
+                {% if not state %}
+                    <tr>
+                        <th>Replica set name</th>
+                        <td colspan="2">
+                            <input type="text" class="form-control" placeholder="replica set name"/>
+                        </td>
+                    </tr>
+                {% endif %}
                 <tr>
                     <th>Persistent nodes</th>
                     <td colspan="2">
@@ -65,7 +75,7 @@
                     <th>Sharding configuration server
                     </th>
                     <td colspan="2">
-                        <input type="checkbox" class="form-control" />
+                        <input type="checkbox" class="form-control"/>
                     </td>
                 </tr>
                 <tr>
@@ -73,7 +83,7 @@
                     <td>
                         <button type="submit"
                                 class="btn btn-{% if state %}primary{% else %}success{% endif %} pull-right">
-                            {% if state %}Apply{% else %}Create slave{% endif %}</button>
+                            {% if state %}Apply{% else %}Create replica set{% endif %}</button>
                     </td>
                 </tr>
             </table>

@@ -60,7 +60,7 @@ def new_host():
 
 @app.route('/new/replicaset')
 def new_replica_set():
-    return render_template('dashboard.html', title="New Replica Set", pnewreplicaset=True,
+    return render_template('edit_replicaset.html', title="New Replica Set", pnewreplicaset=True,
                            crumb=[{'name': 'New replica set', 'url': '/new/replicaset'}])
 
 
