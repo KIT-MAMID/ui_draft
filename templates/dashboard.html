@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block body %}
     <h1 class="page-header">{{ title }}</h1>
-    <h2 class="sub-header">Current problems</h2>
+    <h2 class="sub-header">Current Problems</h2>
     <h3 class="sub-header">Slaves</h3>
     <div class="bs-callout bs-callout-unknown">
         <h4>Slave <a href="/slave/mksuns11/edit/unknown"><span class="glyphicon glyphicon-hdd"
@@ -10,14 +10,14 @@
         <p>Slave <a href="/slave/mksuns11/edit/unknown">mksuns11</a> is in 'UNKNOWN' state.
         </p>
     </div>
-    <h3 class="sub-header">Replica sets</h3>
+    <h3 class="sub-header">Replica Sets</h3>
     <div class="bs-callout bs-callout-degraded">
         <h4>Replica set <a href="/replicaset/meteorologic_data/edit/degraded"><span class="glyphicon glyphicon-cloud"
                                                                aria-hidden="true"></span> meteorologic_data</a> - <b>DEGRADED</b></h4>
         <p>Slave <a href="/slave/mksuns11/edit/unknown">mksuns11</a> is in 'UNKNOWN' state.
         </p>
     </div>
-    <h2 class="sub-header">Slave states</h2>
+    <h2 class="sub-header">Slave States</h2>
     <div id="slaves"></div>
     <script>
         var chart = c3.generate({

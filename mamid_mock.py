@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def dashboard():
-    return render_template('dashboard.html', title="Dashbaord", crumb=[], poverview=True)
+    return render_template('dashboard.html', title="Dashboard", crumb=[], poverview=True)
 
 
 @app.route('/slaves')
@@ -25,7 +25,7 @@ def hosts():
 @app.route('/replicasets')
 def replicat_sets():
     return render_template('replica_sets.html', title="Replica Sets",
-                           crumb=[{'name': 'Replica sets', 'url': '/replicasets'}], preplicasets=True)
+                           crumb=[{'name': 'Replica Sets', 'url': '/replicasets'}], preplicasets=True)
 
 
 @app.route('/problems')
@@ -47,26 +47,26 @@ def riskgroups():
 
     for i in range(62, 67):
         unused.append("mksuns{}".format(i))
-    return render_template('risk_groups.html', title="Risk groups",
-                           crumb=[{'name': 'Risk groups', 'url': '/riskgroups'}], priskgroups=True, cabB=cabB,
+    return render_template('risk_groups.html', title="Risk Groups",
+                           crumb=[{'name': 'Risk Groups', 'url': '/riskgroups'}], priskgroups=True, cabB=cabB,
                            cabA=cabA, unused=unused)
 
 
 @app.route('/new/slave')
 def new_host():
-    return render_template('edit_slave.html', title="New slave", pnewslave=True,
-                           crumb=[{'name': 'New slave', 'url': '/new/slave'}])
+    return render_template('edit_slave.html', title="New Slave", pnewslave=True,
+                           crumb=[{'name': 'New Slave', 'url': '/new/slave'}])
 
 
 @app.route('/new/replicaset')
 def new_replica_set():
     return render_template('edit_replicaset.html', title="New Replica Set", pnewreplicaset=True,
-                           crumb=[{'name': 'New replica set', 'url': '/new/replicaset'}])
+                           crumb=[{'name': 'New Replica Set', 'url': '/new/replicaset'}])
 
 
 @app.route('/slave/<slave>/edit/<mockupstate>')
 def edit_slave(slave, mockupstate):
-    return render_template('edit_slave.html', slavename=slave, title="Slave {}".format(slave),
+    return render_template('edit_slave.html', slavename=slave, title="Slave '{}'".format(slave),
                            crumb=[{'name': 'Slaves', 'url': '/slaves'},
                                   {'name': slave, 'url': '/slave/{}/edit/{}'.format(slave, mockupstate)}], pslaves=True,
                            state=mockupstate)
@@ -74,8 +74,8 @@ def edit_slave(slave, mockupstate):
 
 @app.route('/replicaset/<replicaset>/edit/<state>')
 def edit_replica_set(replicaset, state):
-    return render_template('edit_replicaset.html', slavename=replicaset, title="Replica set {}".format(replicaset),
-                           crumb=[{'name': 'Replica sets', 'url': '/replicasets'},
+    return render_template('edit_replicaset.html', slavename=replicaset, title="Replica Set '{}'".format(replicaset),
+                           crumb=[{'name': 'Replica Sets', 'url': '/replicasets'},
                                   {'name': replicaset, 'url': '/rpelicaset/{}/edit/{}'.format(replicaset, state)}],
                            preplicasets=True,
                            state=state)
