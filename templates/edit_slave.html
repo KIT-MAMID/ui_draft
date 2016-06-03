@@ -3,7 +3,7 @@
     <h1 class="page-header">{{ title }}</h1>
     {% if state %}
         <div class="bs-callout bs-callout-{{ state }}">
-            <h4><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> {{ slavename }} is in
+            <h4>{% if slavename=='mksuns11' %}<span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> {% endif %}{{ slavename }} is in
                 <b>{{ state }}</b>
                 state.</h4>
         </div>
