@@ -65,3 +65,7 @@ target/
 
 static/js/*.js
 static/js/c3
+
+#Virtualenv
+venv/
+venv3/
