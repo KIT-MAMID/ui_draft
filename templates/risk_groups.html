@@ -38,12 +38,14 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
+                <span class="pull-right"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></span>
+                <h4 class="panel-title" style="padding-top: 7px;">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Cabinet A
                     </a>
                 </h4>
+                <span class="clearfix"></span>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <ul class="list-group">
@@ -55,16 +57,18 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingThree">
-                <h4 class="panel-title">
+                <span class="pull-right"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></span>
+                <h4 class="panel-title" style="padding-top: 7px;">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                       href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                       href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                         Cabinet B
                     </a>
                 </h4>
+                <span class="clearfix"></span>
             </div>
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                 <ul class="list-group">
-                    <li class="list-group-item"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>
+                    <li class="list-group-item">
                         mksuns11
                     </li>
                     {% for s in cabB %}
