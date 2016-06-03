@@ -75,7 +75,8 @@
                     <th>Sharding configuration server
                     </th>
                     <td colspan="2">
-                        <input type="checkbox" class="form-control"/>
+                        <input type="checkbox" class="form-control {% if state %}disabled"
+                               disabled{% else %}"{% endif %}/>
                     </td>
                 </tr>
                 <tr>
