@@ -57,6 +57,10 @@
                 <li {% if poverview %}class="active"{% endif %}><a href="/"><span class="glyphicon glyphicon-dashboard"
                                                                                   aria-hidden="true"></span>
                     Overview</a></li>
+                <li {% if pproblems %}class="active"{% endif %}><a href="/problems"><span
+                        class="glyphicon glyphicon-alert"
+                        aria-hidden="true"></span> Problems
+                    <span class="label label-danger">2</span></a></li>
                 <li {% if pslaves %}class="active"{% endif %}><a href="/slaves"><span class="glyphicon glyphicon-tasks"
                                                                                       aria-hidden="true"></span> Slaves</a>
                 </li>
@@ -64,10 +68,6 @@
                         class="glyphicon glyphicon-cloud" aria-hidden="true"></span> Replica sets</a></li>
                 <li {% if priskgroups %}class="active"{% endif %}><a href="/riskgroups"><span
                         class="glyphicon glyphicon-flash" aria-hidden="true"></span> Risk groups</a></li>
-                <li {% if pproblems %}class="active"{% endif %}><a href="/problems"><span
-                        class="glyphicon glyphicon-alert"
-                        aria-hidden="true"></span> Problems
-                    <span class="label label-danger">2</span></a></li>
             </ul>
             <ul class="nav nav-sidebar">
                 <li {% if pnewslave %}class="active"{% endif %}><a href="/new/slave"><span
