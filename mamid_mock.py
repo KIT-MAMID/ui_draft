@@ -68,7 +68,7 @@ def new_replica_set():
 def edit_slave(slave, mockupstate):
     return render_template('edit_slave.html', slavename=slave, title="Slave {}".format(slave),
                            crumb=[{'name': 'Slaves', 'url': '/slaves'},
-                                  {'name': slave, 'url': '/slave/{}/edit/{}'.format(slave, mockupstate)}], pslave=True,
+                                  {'name': slave, 'url': '/slave/{}/edit/{}'.format(slave, mockupstate)}], pslaves=True,
                            state=mockupstate)
 
 
@@ -77,7 +77,7 @@ def edit_replica_set(replicaset, state):
     return render_template('edit_replicaset.html', slavename=replicaset, title="Replica set {}".format(replicaset),
                            crumb=[{'name': 'Replica sets', 'url': '/replicasets'},
                                   {'name': replicaset, 'url': '/rpelicaset/{}/edit/{}'.format(replicaset, state)}],
-                           preplicaset=True,
+                           preplicasets=True,
                            state=state)
 
 
