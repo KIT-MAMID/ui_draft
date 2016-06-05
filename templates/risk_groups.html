@@ -15,7 +15,7 @@
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                        aria-expanded="true" aria-controls="collapseOne">
-                        Assignable slaves
+                        Assignable Slaves
                     </a><span data-toggle="tooltip" data-placement="right"
                               title="Slaves need to be in 'disabled' state to be assignable to a risk group."><span
                         class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></span>
@@ -38,7 +38,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingTwo">
-                <span class="pull-right"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></span>
+                <span class="pull-right"><button class="btn btn-danger" data-toggle="modal" data-target="#confirm_remove"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></span>
                 <h4 class="panel-title" style="padding-top: 7px;">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                        href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -78,4 +78,33 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="confirm_remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Cancel"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Confirm Risk Group Removal</h4>
+                    </div>
+                    <div class="modal-body">
+                        You are about to remove the risk group Cabinet A.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">Remove Risk Group Cabinet A</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+            var url = window.location + "";
+            idx = url.indexOf("#");
+            var hash = idx != -1 ? url.substring(idx + 1) : "";
+            if (hash == 'modal') {
+                $('#confirm_remove').modal();
+            }
+        </script>
 {% endblock body %}
